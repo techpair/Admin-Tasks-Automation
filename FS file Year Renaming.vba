@@ -46,8 +46,8 @@ Sub TestCopyAndUpdateYear()
     Dim currYearKeywords As Variant
 
     ' Define arrays of keywords for replacement
-    prevYearKeywords = Array("2023", "Budget 2023", "Forecast 2023") ' Example keywords
-    currYearKeywords = Array("2024", "Budget 2024", "Forecast 2024") ' Corresponding keywords
+    prevYearKeywords = Array("2023", ".2021") ' Example keywords
+    currYearKeywords = Array("2024", ".2024") ' Corresponding keywords
 
     Call CopyAndUpdateYear(prevYearKeywords, currYearKeywords)
 End Sub
