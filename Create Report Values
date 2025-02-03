@@ -8,13 +8,14 @@ Sub CreateReportAsValues(wsToExclude As String)
             
             If Not wb Is Nothing Then
                 ws.Copy after:=wb.Sheets(wb.Sheets.Count)
-                ws.UsedRange.Value = ws.UsedRange.Value
-                ws.Cells(1, 1).Select
+                
+                wb.Sheets(ws.Name).UsedRange.Value = wb.Sheets(ws.Name).UsedRange.Value
+                
             Else
                 ws.Copy
                 Set wb = ActiveWorkbook
-                ws.UsedRange.Value = ws.UsedRange.Value
-                ws.Cells(1, 1).Select
+                wb.Sheets(ws.Name).UsedRange.Value = wb.Sheets(ws.Name).UsedRange.Value
+                
             End If
             
         End If
