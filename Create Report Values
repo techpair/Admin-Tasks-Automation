@@ -1,0 +1,23 @@
+Sub CreateReportAsValues(wsToExclude As String)
+    Dim ws As Worksheet
+    Dim wb As Workbook
+    
+    
+    For Each ws In ThisWorkbook.Sheets
+        If ws.Name <> wsToExclude And ws.Visible = xlSheetVisible Then
+            
+            If Not wb Is Nothing Then
+                ws.Copy after:=wb.Sheets(wb.Sheets.Count)
+                ws.UsedRange.Value = ws.UsedRange.Value
+                ws.Cells(1, 1).Select
+            Else
+                ws.Copy
+                Set wb = ActiveWorkbook
+                ws.UsedRange.Value = ws.UsedRange.Value
+                ws.Cells(1, 1).Select
+            End If
+            
+        End If
+    Next
+    
+End Sub
