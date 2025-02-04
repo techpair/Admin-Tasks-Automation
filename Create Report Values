@@ -22,3 +22,8 @@ Sub CreateReportAsValues(wsToExclude As String)
     Next
     
 End Sub
+
+Private Sub CreateReport()
+    CreateReportAsValues "TRANSACTIONS"
+End Sub
+
