@@ -1,0 +1,29 @@
+Sub CreateReportAsValues(wsToExclude As String)
+    Dim ws As Worksheet
+    Dim wb As Workbook
+    
+    
+    For Each ws In ThisWorkbook.Sheets
+        If ws.Name <> wsToExclude And ws.Visible = xlSheetVisible Then
+            
+            If Not wb Is Nothing Then
+                ws.Copy after:=wb.Sheets(wb.Sheets.Count)
+                
+                wb.Sheets(ws.Name).UsedRange.Value = wb.Sheets(ws.Name).UsedRange.Value
+                
+            Else
+                ws.Copy
+                Set wb = ActiveWorkbook
+                wb.Sheets(ws.Name).UsedRange.Value = wb.Sheets(ws.Name).UsedRange.Value
+                
+            End If
+            
+        End If
+    Next
+    
+End Sub
+
+Private Sub CreateReport()
+    CreateReportAsValues "TRANSACTIONS"
+End Sub
+
